@@ -1,18 +1,10 @@
----
-  title: "Writing functions for data cleaning"
-output: html_document
----
-  
-  ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## removeAmbiguity function
 ## eliminates bothersome designations and ambiguities
 ## examples include: G, P, N e, v designations and ambuities starting with "/"
 ## This code will remove everything after those designations, leaving the first (and most common) allele in the ## cell
 
-```{r removeAmbiguity}
+
 stupid_df <- read.csv("stupid_df.csv", header=TRUE, stringsAsFactors = FALSE)
 
 #snippet works
@@ -51,14 +43,6 @@ resolveAmbiguity <- function(df, x = 1, char){
 #Test
 stupid_df <- resolveAmbiguity(stupid_df, x = 2, char = "/.*")
 
-
-```
-
-## 
-
-
-
-```{r copyHomozygous}
 # Add some empty homozygous calls
 stupid_df <- read.csv("stupid_df.csv", header=TRUE, stringsAsFactors = FALSE)
 
@@ -86,5 +70,3 @@ copyHomozygous <- function (df){
 # assign the output of the function to a new data frame
 stupid_df <- copyHomozygous(stupid_df)
 
-
-```
